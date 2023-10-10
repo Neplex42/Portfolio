@@ -1,4 +1,4 @@
-import { Vector3 } from 'three'
+import { Vector3, Object3D  } from 'three'
 import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF, SpotLight, Environment } from "@react-three/drei";
@@ -7,6 +7,8 @@ import CanvasLoader from "../Loader";
 
 const Car = ({ isMobile, spotLights }) => {
   const car = useGLTF("./bmwCar/scene.gltf");
+
+  const lightTargets = spotLights.map(() => new Object3D());
 
   return (
     <mesh>
@@ -21,7 +23,7 @@ const Car = ({ isMobile, spotLights }) => {
           distance={50}
           castShadow
           shadow-mapSize={1024}
-          target={car.scene}
+          target={lightTargets[index]} // Utilisez la cible correspondante
           color={light.color}
         />
       ))}
@@ -40,46 +42,52 @@ const CarCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, []);
 
   const [spotLights, setSpotLights] = useState([
     {
       position: [15, 3, 5],
-      color: "white",
+      color: 'white',
       intensity: 300,
+      target: new Object3D(), // Créez un objet 3D pour chaque cible
     },
     {
       position: [10, 5, -5],
       color: "yellow",
       intensity: 300,
+      target: new Object3D(),
     },
     {
       position: [2, 4, 12],
       color: "#6a5acd",
       intensity: 300,
+      target: new Object3D(),
     },
     {
       position: [2, 4, 12],
       color: "#6a5acd",
       intensity: 300,
+      target: new Object3D(),
     },
     {
       position: [-3, 2, 13],
       color: "red",
       intensity: 300,
+      target: new Object3D(),
     },
+    // Répétez ceci pour les autres lumières
   ]);
 
   // Fonction pour faire clignoter aléatoirement les lumières
@@ -91,18 +99,22 @@ const CarCanvas = () => {
     setSpotLights(newSpotLights);
   };
 
+  const setRandomInterval = () => {
+    const intervalValues = [2000, 500, 1000, 700, 4000, 300];
+    const randomIndex = Math.floor(Math.random() * intervalValues.length);
+    const randomInterval = intervalValues[randomIndex];
+    
+    const interval = setInterval(randomizeSpotLightIntensity, randomInterval);
+  };
+
   useEffect(() => {
     // Utilisez un intervalle pour changer l'intensité des lumières toutes les 2 secondes
-    const interval = setInterval(randomizeSpotLightIntensity, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
+    setRandomInterval();
   }, []);
 
   return (
     <Canvas
-      frameloop="demand"
+      frameloop='demand'
       shadows
       dpr={[1, 2]}
       camera={{ position: [20, 3, 15], fov: 25 }}
@@ -114,11 +126,12 @@ const CarCanvas = () => {
         minPolarAngle={Math.PI / 2}
       />
       <Car isMobile={isMobile} spotLights={spotLights} />
-      <ambientLight intensity={0.2} color="#ffcc88" />
-      <Environment preset="night" />
+      <ambientLight intensity={0.2} color='#ffcc88' />
+      <Environment preset='night' />
       <Preload all />
     </Canvas>
   );
 }
+
 
 export default CarCanvas;
