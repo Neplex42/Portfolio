@@ -1,18 +1,22 @@
-import { Vector3, Object3D  } from 'three'
+import { Vector3, Object3D, Clock } from 'three'
 import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF, SpotLight, Environment } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, SpotLight, Environment, Outlines, useAnimations } from "@react-three/drei";
+import { useControls } from 'leva'
 
 import CanvasLoader from "../Loader";
 
-const Car = ({ isMobile, spotLights }) => {
+const Car = ({ outlines, isMobile, spotLights, ...props }) => {
   const car = useGLTF("./bmwCar/scene.gltf");
+  const ref = useRef();
+  // useFrame((state, delta) => (ref.current.rotation.y += delta))
 
   const lightTargets = spotLights.map(() => new Object3D());
 
   return (
-    <mesh>
+    <mesh castShadow receiveShadow ref={ref} {...props}>
       <hemisphereLight intensity={5} groundColor="black" />
+      {outlines && <Outlines thickness={0.03} angle={0} />}
       {spotLights.map((light, index) => (
         <SpotLight
           key={index}
@@ -30,16 +34,25 @@ const Car = ({ isMobile, spotLights }) => {
       <pointLight intensity={30} />
       <primitive
         object={car.scene}
-        scale={isMobile ? 0.7 : 3.5}
+        scale={isMobile ? 0.7 : 2}
         position={isMobile ? [0, -3, -2.2] : [0, -3.45, -1.5]}
-        rotation={[-0.01, 0.1, -0.1]}
+        rotation={[-0.01, 5.8, -0.1]}
       />
     </mesh>
   );
 }
 
+function CameraRig({ v = new Vector3() }) {
+  return useFrame((state) => {
+    const t = state.clock.elapsedTime
+    state.camera.position.lerp(v.set(Math.sin(t / 5), 0, 12 + Math.cos(t / 5) / 2), 0.05)
+    state.camera.lookAt(-1.5, -1.8, 0)
+  })
+}
+
 const CarCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  // const { outlines } = useControls({ outlines: true })
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 500px)');
@@ -71,67 +84,47 @@ const CarCanvas = () => {
     },
     {
       position: [2, 4, 12],
-      color: "#6a5acd",
+      color: "yellow",
       intensity: 300,
       target: new Object3D(),
     },
     {
       position: [2, 4, 12],
-      color: "#6a5acd",
+      color: "purple",
       intensity: 300,
       target: new Object3D(),
     },
     {
       position: [-3, 2, 13],
-      color: "red",
+      color: "purple",
       intensity: 300,
       target: new Object3D(),
     },
     // Répétez ceci pour les autres lumières
   ]);
 
-  // Fonction pour faire clignoter aléatoirement les lumières
-  const randomizeSpotLightIntensity = () => {
-    const newSpotLights = [...spotLights];
-    newSpotLights.forEach((light) => {
-      light.intensity = Math.random() < 0.5 ? 10 : 300; // Valeurs d'intensité aléatoires
-    });
-    setSpotLights(newSpotLights);
-  };
-
-  const setRandomInterval = () => {
-    const intervalValues = [2000, 500, 1000, 700, 4000, 300];
-    const randomIndex = Math.floor(Math.random() * intervalValues.length);
-    const randomInterval = intervalValues[randomIndex];
-    
-    const interval = setInterval(randomizeSpotLightIntensity, randomInterval);
-  };
-
-  useEffect(() => {
-    // Utilisez un intervalle pour changer l'intensité des lumières toutes les 2 secondes
-    setRandomInterval();
-  }, []);
-
   return (
     <Canvas
       frameloop='demand'
       shadows
-      dpr={[1, 2]}
       camera={{ position: [20, 3, 15], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      <OrbitControls
-        enableZoom={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 2}
-      />
-      <Car isMobile={isMobile} spotLights={spotLights} />
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Car isMobile={isMobile} spotLights={spotLights} />
+      
+      <CameraRig />
       <ambientLight intensity={0.2} color='#ffcc88' />
       <Environment preset='night' />
-      <Preload all />
+      </Suspense>
+      {/* <Preload all /> */}
     </Canvas>
   );
 }
-
 
 export default CarCanvas;
