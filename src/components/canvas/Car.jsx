@@ -34,9 +34,9 @@ const Car = ({ outlines, isMobile, spotLights, ...props }) => {
       <pointLight intensity={30} />
       <primitive
         object={car.scene}
-        scale={isMobile ? 0.7 : 2}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.45, -1.5]}
-        rotation={[-0.01, 5.8, -0.1]}
+        scale={isMobile ? 1.5 : 2}
+        position={isMobile ? [-1.6, -3.5, -2.2] : [0, -3.45, -1.5]}
+        rotation={isMobile ?[-0.01, 6.2, -0.1] : [-0.01, 5.8, -0.1]}
       />
     </mesh>
   );
@@ -44,9 +44,9 @@ const Car = ({ outlines, isMobile, spotLights, ...props }) => {
 
 function CameraRig({ v = new Vector3() }) {
   return useFrame((state) => {
-    const t = state.clock.elapsedTime
-    state.camera.position.lerp(v.set(Math.sin(t / 5), 0, 12 + Math.cos(t / 5) / 2), 0.05)
-    state.camera.lookAt(-1.5, -1.8, 0)
+    const t = state.clock.elapsedTime;
+    state.camera.position.lerp(v.set(Math.sin(t / 5), 0, 12 + Math.cos(t / 5) / 2), 0.05);
+    state.camera.lookAt(-1.5, -1.8, 0);
   })
 }
 
