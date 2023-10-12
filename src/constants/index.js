@@ -26,6 +26,8 @@ import {
     jobit,
     tripguide,
     threejs,
+    portfolio,
+    sitee,
   } from "../assets";
   
   export const navLinks = [
@@ -106,19 +108,6 @@ import {
   ];
   
   const experiences = [
-    // {
-    //   title: "React.js Developer",
-    //   company_name: "Starbucks",
-    //   icon: starbucks,
-    //   iconBg: "#383E56",
-    //   date: "March 2020 - April 2021",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
     {
       title: "Formation Développeur Web FullStack",
       company_name: "O'Clock",
@@ -137,8 +126,8 @@ import {
       iconBg: "#E6DEDD",
       date: "Octobre 2023",
       points: [
-        "Maîtrise des Technologies Web : J'ai consolidé mes compétences en développement web en explorant des technologies telles que React, Three.js, Fiber et Drei. J'ai acquis une solide compréhension de la création de composants interactifs et de la gestion d'événements en utilisant React. De plus, j'ai appris à manipuler des éléments 3D, gérer des animations et des lumières, et à créer des expériences visuellement captivantes.",
-        "Intégration et Utilisation de Bibliothèques Tierces : J'ai perfectionné ma capacité à intégrer des bibliothèques tierces, à les comprendre et à les exploiter efficacement. Cela inclut des compétences en intégration de React Router pour la gestion de la navigation et l'utilisation de bibliothèques telles que Drei pour enrichir les fonctionnalités de mes projets.",
+        "Maîtrise des Technologies Web : J'ai consolidé mes compétences en développement web en explorant React, Three.js, Fiber, et Drei, en créant des composants interactifs et des expériences visuellement captivantes.",
+        "Intégration de Bibliothèques Tierces : J'ai renforcé ma capacité à intégrer et exploiter efficacement des bibliothèques tierces, comme React Router et Drei, pour améliorer mes projets.",
         "Compétences en Résolution de Problèmes et Communication : J'ai développé ma capacité à résoudre des problèmes complexes et comprendre comment les résoudres.",
       ],
     },
@@ -157,45 +146,18 @@ import {
     },
   ];
   
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-  ];
-  
   const projects = [
     {
-      name: "Car Rent",
+      name: "Mon portfolio",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Ce projet a débuté avec des influences d'un projet existant, mais il a rapidement pris sa propre identité grâce à des modifications significatives. En m'inspirant de la palette de couleurs et de la charte graphique d'origine, j'ai repensé et personnalisé le projet pour qu'il corresponde davantage à mes préférences. J'ai également profité de cette occasion pour approfondire mes compétences dans divers langages et technologies que je ne connaissais pas auparavant.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "three.js, fiber, drei",
           color: "green-text-gradient",
         },
         {
@@ -203,51 +165,30 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: portfolio,
+      source_code_link: "https://github.com/Neplex42/Portfolio",
     },
     {
-      name: "Job IT",
+      name: "My-broderie-diamant",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Création complète d'un site e-commerce sur Shopify, de la conception initiale à la maintenance à long terme. Gestion du service client et résolution des problèmes après-vente pour une expérience client optimale. Réalisation de campagnes publicitaires efficaces avec Facebook Ads et Google Ads, tout en mettant l'accent sur l'optimisation du référencement (SEO). Mon dévouement et mes compétences ont contribué à la croissance et au succès de l'entreprise.",
       tags: [
         {
-          name: "react",
+          name: "SEO et SEA",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "Sav",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "Service client",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: sitee,
+      source_code_link: "https://my-broderie-diamant.com/",
     },
   ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  export { services, technologies, experiences, projects };
