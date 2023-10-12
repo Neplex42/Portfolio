@@ -1,4 +1,6 @@
 import {
+    oclock,
+    oclock2,
     mobile,
     backend,
     creator,
@@ -128,19 +130,29 @@ import {
     //     "Participating in code reviews and providing constructive feedback to other developers.",
     //   ],
     // },
-    // {
-    //   title: "React Native Developer",
-    //   company_name: "Tesla",
-    //   icon: tesla,
-    //   iconBg: "#E6DEDD",
-    //   date: "Jan 2021 - Feb 2022",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
+    {
+      title: "Formation Développeur Web FullStack",
+      company_name: "O'Clock",
+      icon: oclock2,
+      iconBg: "#0ac3a6",
+      date: "Depuis Avril 2023",
+      points: [
+        "Pré qualification et validation compétence professionnelle savoir faire et savoir être chez Histya",
+        "Actuellement, je suis inscrit à la formation Full Stack / Accessibilité de l'école O'Clock, où j'acquiers des compétences essentielles en développement web. J'apprends à maîtriser des technologies telles que HTML, CSS, JavaScript, Node.js, PostgreSQL, React, tout en mettant un fort accent sur l'accessibilité pour rendre les applications web plus inclusives.",
+      ],
+    },
+    {
+      title: "Création de ce portfolio",
+      company_name: "React, three, fiber et drei",
+      icon: reactjs,
+      iconBg: "#E6DEDD",
+      date: "Octobre 2023",
+      points: [
+        "Maîtrise des Technologies Web : J'ai consolidé mes compétences en développement web en explorant des technologies telles que React, Three.js, Fiber et Drei. J'ai acquis une solide compréhension de la création de composants interactifs et de la gestion d'événements en utilisant React. De plus, j'ai appris à manipuler des éléments 3D, gérer des animations et des lumières, et à créer des expériences visuellement captivantes.",
+        "Intégration et Utilisation de Bibliothèques Tierces : J'ai perfectionné ma capacité à intégrer des bibliothèques tierces, à les comprendre et à les exploiter efficacement. Cela inclut des compétences en intégration de React Router pour la gestion de la navigation et l'utilisation de bibliothèques telles que Drei pour enrichir les fonctionnalités de mes projets.",
+        "Compétences en Résolution de Problèmes et Communication : J'ai développé ma capacité à résoudre des problèmes complexes et comprendre comment les résoudres.",
+      ],
+    },
     {
       title: "Création site e-commerce",
       company_name: "Shopify",
@@ -148,10 +160,10 @@ import {
       iconBg: "#383E56",
       date: "Décembre 2019 - Juillet 2020",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Référencement naturel grâce au SEO",
-        "Maitrise Facebook Ads et google Ads",
-        "Gestion du site et maintenance",
+        "Création complète d'un site e-commerce sur la plateforme Shopify, de sa conception initiale à son maintien à long terme. ",
+        "En outre, j'étais responsable du service client et de la gestion des problèmes après-vente, garantissant une expérience client optimale.",
+        "Mise en œuvre de campagnes publicitaires efficaces, utilisant des outils tels que Facebook Ads et Google Ads, tout en mettant un fort accent sur l'optimisation du référencement (SEO). ",
+        "Mon dévouement et mes compétences ont contribué à la croissance et au succès de l'entreprise.",
       ],
     },
   ];
