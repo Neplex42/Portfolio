@@ -7,7 +7,7 @@ import { useControls } from 'leva'
 import CanvasLoader from "../Loader";
 
 const Car = ({ outlines, isMobile, spotLights, ...props }) => {
-  const car = useGLTF("./bmwCar/scene.gltf");
+  const car = useGLTF("./free_bmw.glb");
   const ref = useRef();
   // useFrame((state, delta) => (ref.current.rotation.y += delta))
 
