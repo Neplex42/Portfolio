@@ -1,2 +1,2 @@
 # Portfolio
-My portfolio using React, Three, Tailwind
+Mon portfolio en utilisant React, Three, Tailwind, fiber, drei..

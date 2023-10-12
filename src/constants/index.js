@@ -1,4 +1,5 @@
 import {
+    postgreSQL,
     oclock,
     oclock2,
     mobile,
@@ -56,7 +57,7 @@ import {
       icon: backend,
     },
     {
-      title: "Passionné par Three.Js, Fiber, Drei",
+      title: "Intéressé par Three.Js, Fiber, Drei",
       icon: creator,
     },
   ];
@@ -75,16 +76,8 @@ import {
       icon: javascript,
     },
     {
-      name: "TypeScript",
-      icon: typescript,
-    },
-    {
       name: "React JS",
       icon: reactjs,
-    },
-    {
-      name: "Redux Toolkit",
-      icon: redux,
     },
     {
       name: "Tailwind CSS",
@@ -95,8 +88,8 @@ import {
       icon: nodejs,
     },
     {
-      name: "MongoDB",
-      icon: mongodb,
+      name: "PostgreSQL",
+      icon: postgreSQL,
     },
     {
       name: "Three JS",
@@ -109,10 +102,6 @@ import {
     {
       name: "figma",
       icon: figma,
-    },
-    {
-      name: "docker",
-      icon: docker,
     },
   ];
   
