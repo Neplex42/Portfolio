@@ -6,8 +6,6 @@ import { CarCanvas } from "./canvas";
 import { DeviceDetect } from "react-device-detect";
 
 const Hero = () => {
-  const isMobile = window.innerWidth <= 768;
-
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
@@ -28,7 +26,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {!isMobile && <CarCanvas />}
+      <CarCanvas />
 
       <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
         <a href="#about">
