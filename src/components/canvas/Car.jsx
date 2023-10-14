@@ -117,7 +117,6 @@ const CarCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
         <Car isMobile={isMobile} spotLights={spotLights} />
-      
       <CameraRig />
       <ambientLight intensity={0.2} color='#ffcc88' />
       <Environment preset='night' />

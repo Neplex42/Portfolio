@@ -20,7 +20,7 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-import postgreSQL from "./company/PostgreSQL_elephant.svg";
+import postgreSQL from "./company/Postgresql_elephant.svg";
 
 import oclock from "./company/oclock.png";
 import oclock2 from "./company/oclock2.svg";
