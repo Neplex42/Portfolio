@@ -26,7 +26,7 @@ const HeroMobile = () => {
         </div>
       </div>
 
-      <img className="pt-[300px]" src="/public/Capture_bmw.png" alt="" />
+      <img className="w-full mx-auto pt-[300px]" src="./public/Capture_bmw.png" alt="" />
 
       <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
         <a href="#about">
