@@ -64,7 +64,9 @@ import {
     },
   ];
   
-  const technologies = [
+  const isMobile = window.innerWidth <= 450;
+
+  const technologies = !isMobile ? [
     {
       name: "HTML 5",
       icon: html,
@@ -97,7 +99,38 @@ import {
       name: "Three JS",
       icon: threejs,
     },
-  ];
+    {
+      name: "git",
+      icon: git,
+    },
+    {
+      name: "figma",
+      icon: figma,
+    },
+  ] : [{
+    name: "CSS 3",
+    icon: css,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "React JS",
+    icon: reactjs,
+  },
+  {
+    name: "Node JS",
+    icon: nodejs,
+  },
+  {
+    name: "PostgreSQL",
+    icon: postgreSQL,
+  },
+  {
+    name: "Three JS",
+    icon: threejs,
+  },];
   
   const experiences = [
     {
