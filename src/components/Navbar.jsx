@@ -8,27 +8,33 @@ import { logo, menu, close } from '../assets';
 
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  // On commence par définir trois états locaux à l'aide de useState.
+  const [active, setActive] = useState(""); // Gère l'élément actif du menu.
+  const [toggle, setToggle] = useState(false); // Gère l'état du menu mobile.
+  const [scrolled, setScrolled] = useState(false); // Indique si la page a été scrollée.
 
+  // Utilisation de useEffect pour gérer les événements liés au scroll.
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
-        setScrolled(true);
+        setScrolled(true); // Si la page a été scrollée de plus de 100 pixels, on active l'état "scrolled".
       } else {
-        setScrolled(false);
+        setScrolled(false); // Sinon, on le désactive.
       }
     };
 
+    // Ajout d'un écouteur d'événement "scroll" pour appeler la fonction "handleScroll" lorsque l'utilisateur fait défiler la page.
     window.addEventListener("scroll", handleScroll);
 
+    // Retrait de l'écouteur d'événement lorsque le composant est démonté pour éviter les fuites de mémoire.
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Le composant retourne une structure de navigation.
   return (
     <nav
+      // La classe CSS est conditionnelle en fonction de l'état "scrolled".
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
@@ -40,36 +46,37 @@ const Navbar = () => {
           to='/'
           className='flex items-center gap-2'
           onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+            setActive(""); // Réinitialise l'élément actif du menu.
+            window.scrollTo(0, 0); // Fait défiler la page vers le haut.
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>Jordan &nbsp;<span className='sm:block hidden'>| Développeur junior</span></p>
-          </Link>
-
-          <ul className='list-none hidden sm:flex flex-row gap-10'>
+        </Link>
+  
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
+              // La classe CSS est conditionnelle en fonction de l'élément actif.
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => setActive(nav.title)} // Définit l'élément actif au clic.
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
-
+  
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
-            src={toggle ? close : menu}
+            src={toggle ? close : menu} // L'image affichée dépend de l'état du menu.
             alt='menu'
             className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
+            onClick={() => setToggle(!toggle)} // Active/désactive le menu mobile au clic.
           />
-
+  
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -80,12 +87,13 @@ const Navbar = () => {
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
+                  // La classe CSS est conditionnelle en fonction de l'élément actif.
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
+                    setToggle(!toggle); // Ferme le menu mobile au clic.
+                    setActive(nav.title); // Définit l'élément actif.
                   }}
                 >
                   <a href={`#${nav.id}`}>{nav.title}</a>
@@ -97,5 +105,7 @@ const Navbar = () => {
       </div>
     </nav>
   );
+  
 };
+
 export default Navbar
