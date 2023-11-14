@@ -2,10 +2,36 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { CarCanvas } from "./canvas";
-
-import { DeviceDetect } from "react-device-detect";
+import React, { useEffect, useState } from 'react';
+import { isMobile, isBrowser } from 'react-device-detect';
+import { getGPUTier } from 'detect-gpu';
 
 const Hero = () => {
+  const [hasDedicatedGPU, setHasDedicatedGPU] = useState(false);
+
+  useEffect(() => {
+    const checkGPU = async () => {
+      try {
+        const gpuTier = await getGPUTier();
+        // Utilisez la valeur de gpuTier pour prendre des décisions, par exemple :
+        if (gpuTier >= 1) {
+          // Le GPU est suffisamment puissant, affichez des éléments 3D
+          setHasDedicatedGPU(true);
+          console.log('Afficher des éléments 3D');
+        } else {
+          // Le GPU n'est pas assez puissant, affichez une alternative
+          setHasDedicatedGPU(false);
+          console.log('Afficher une alternative sans éléments 3D');
+        }
+      } catch (error) {
+        console.error('Erreur lors de la détection du GPU :', error);
+        // En cas d'erreur, gérer la situation en conséquence
+      }
+    };
+
+    checkGPU();
+  }, []);
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
     {/* Crée une section avec une largeur maximale de 100% et une hauteur équivalente à la hauteur de l'écran. */}
@@ -38,8 +64,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
-      <CarCanvas />
+      {hasDedicatedGPU ? <CarCanvas /> : null}
 
       <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
       {/* Crée un conteneur positionné de manière absolue en bas de la section, centré horizontalement et verticalement. */}
