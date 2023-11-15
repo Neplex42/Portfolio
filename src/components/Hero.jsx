@@ -7,28 +7,31 @@ import { isMobile, isBrowser } from 'react-device-detect';
 import { getGPUTier } from 'detect-gpu';
 
 const Hero = () => {
-  const [hasDedicatedGPU, setHasDedicatedGPU] = useState(false);
+  const [shouldRender3D, setShouldRender3D] = useState(false);
 
   useEffect(() => {
     const checkGPU = async () => {
       try {
         const gpuTier = await getGPUTier();
-        // Utilisez la valeur de gpuTier pour prendre des décisions, par exemple :
-        if (gpuTier >= 1) {
+        console.log('GPU Tier:', gpuTier.tier);
+        console.log('Is Mobile:', gpuTier.isMobile);
+        console.log('FPS:', gpuTier.fps);
+        console.log('GPU:', gpuTier.gpu);
+  
+        // Utilisez la valeur de gpuTier pour prendre des décisions
+        if (gpuTier.tier >= 1) {
           // Le GPU est suffisamment puissant, affichez des éléments 3D
-          setHasDedicatedGPU(true);
-          console.log('Afficher des éléments 3D');
+          setShouldRender3D(true);
         } else {
           // Le GPU n'est pas assez puissant, affichez une alternative
-          setHasDedicatedGPU(false);
-          console.log('Afficher une alternative sans éléments 3D');
+          setShouldRender3D(false);
         }
       } catch (error) {
         console.error('Erreur lors de la détection du GPU :', error);
-        // En cas d'erreur, gérer la situation en conséquence
+        // Gérer les erreurs en conséquence
       }
     };
-
+  
     checkGPU();
   }, []);
 
@@ -64,7 +67,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      {hasDedicatedGPU ? <CarCanvas /> : null}
+      {setShouldRender3D ? <CarCanvas /> : null}
 
       <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
       {/* Crée un conteneur positionné de manière absolue en bas de la section, centré horizontalement et verticalement. */}

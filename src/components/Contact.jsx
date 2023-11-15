@@ -12,31 +12,6 @@ import { getGPUTier } from 'detect-gpu';
 // const isMobile = window.innerWidth <= 450;
 
 const Contact = () => {
-  const [hasDedicatedGPU, setHasDedicatedGPU] = useState(false);
-
-  useEffect(() => {
-    const checkGPU = async () => {
-      try {
-        const gpuTier = await getGPUTier();
-        // Utilisez la valeur de gpuTier pour prendre des décisions, par exemple :
-        if (gpuTier >= 1) {
-          // Le GPU est suffisamment puissant, affichez des éléments 3D
-          setHasDedicatedGPU(true);
-          console.log('Afficher des éléments 3D');
-        } else {
-          // Le GPU n'est pas assez puissant, affichez une alternative
-          setHasDedicatedGPU(false);
-          console.log('Afficher une alternative sans éléments 3D');
-        }
-      } catch (error) {
-        console.error('Erreur lors de la détection du GPU :', error);
-        // En cas d'erreur, gérer la situation en conséquence
-      }
-    };
-
-    checkGPU();
-  }, []);
-
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -157,8 +132,8 @@ const Contact = () => {
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
         {/* {!isMobile && <EarthCanvas />} */}
-        {!isMobile && hasDedicatedGPU ? <EarthCanvas /> : null}
-        {isMobile && <></>}
+        {/* {!isMobile && setShouldRender3D ? <EarthCanvas /> : null}
+        {isMobile && <></>} */}
       </motion.div>
     </div>
   );
