@@ -78,7 +78,7 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()}> 
       {/* Crée un conteneur animé pour le titre de la section "Mes Projets" en utilisant textVariant */}
-        <p className={`${styles.sectionSubText} `}>Mon travil</p>
+        <p className={`${styles.sectionSubText} `}>Mon travail</p>
         <h2 className={`${styles.sectionHeadText}`}>Mes Projets.</h2>
       </motion.div>
 

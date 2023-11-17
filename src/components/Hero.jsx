@@ -19,7 +19,7 @@ const Hero = () => {
         console.log('GPU:', gpuTier.gpu);
   
         // Utilisez la valeur de gpuTier pour prendre des décisions
-        if (gpuTier.tier >= 1) {
+        if (gpuTier.tier >= 1 && gpuTier.fps >=50) {
           // Le GPU est suffisamment puissant, affichez des éléments 3D
           setShouldRender3D(true);
         } else {
