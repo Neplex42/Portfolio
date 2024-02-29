@@ -22,7 +22,7 @@ const Hero = () => {
         if (gpuTier.tier >= 1 && gpuTier.fps >=60 ) {
           // Le GPU est suffisamment puissant, affichez des éléments 3D
           setShouldRender3D(true);
-        } else if (gpuTier.fps == 'undefined') {
+        } else if (gpuTier.fps == 'undefined' || gpuTier.fps == '' || gpuTier.fps == undefined) {
           // Le GPU n'est pas assez puissant, affichez une alternative
           setShouldRender3D(false);
         } else {
