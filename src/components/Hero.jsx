@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { CarCanvas } from "./canvas";
+import { CarCanvas, EarthCanvas } from "./canvas";
 import React, { useEffect, useState } from 'react';
 import { isMobile, isBrowser } from 'react-device-detect';
 import { getGPUTier } from 'detect-gpu';
@@ -19,12 +19,9 @@ const Hero = () => {
         console.log('GPU:', gpuTier.gpu);
   
         // Utilisez la valeur de gpuTier pour prendre des décisions
-        if (gpuTier.tier >= 1 && gpuTier.fps >=60 ) {
+        if ( gpuTier.fps > 60 ) {
           // Le GPU est suffisamment puissant, affichez des éléments 3D
           setShouldRender3D(true);
-        } else if (gpuTier.fps == 'undefined' || gpuTier.fps == '' || gpuTier.fps == undefined) {
-          // Le GPU n'est pas assez puissant, affichez une alternative
-          setShouldRender3D(false);
         } else {
           // Le GPU n'est pas assez puissant, affichez une alternative
           setShouldRender3D(false);
@@ -70,9 +67,10 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      {setShouldRender3D ? <CarCanvas /> : null}
+        {/* <EarthCanvas /> */}
 
-      <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
+
+      <div className="absolute xs:bottom-30 bottom-20 w-full flex justify-center items-center">
       {/* Crée un conteneur positionné de manière absolue en bas de la section, centré horizontalement et verticalement. */}
 
         <a href="#about">

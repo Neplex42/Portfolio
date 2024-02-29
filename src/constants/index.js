@@ -1,5 +1,8 @@
 import {
+    siteZombieland,
     postgreSQL,
+    zombieland,
+    iconZombieland,
     oclock,
     oclock2,
     mobile,
@@ -47,7 +50,7 @@ import {
   
   const services = [
     {
-      title: "HTML, SCSS, Tailwind",
+      title: "HTML, SCSS, EJS",
       icon: web,
     },
     {
@@ -134,11 +137,23 @@ import {
   
   const experiences = [
     {
+      title: "ZombieLand Adventure Park",
+      company_name: "Node, express, ejs et scss",
+      icon: iconZombieland,
+      iconBg: "#000000",
+      date: "26 Janvier 2023 - 27 Février 2024",
+      points: [
+        "Un projet tout juste achevé dans le cadre de ma formation avancée chez O'clock. Cette initiative a consisté à conceptualiser et développer un site dynamique pour un parc d'attractions fictif.",
+        "Une semaine dédiée à la création d'un cahier des charges détaillé, incluant la charte graphique et les modèles de données, suivie de trois semaines de développement intensif.",
+        "Cette approche bifrontale (front-end et back-end séparés) a permis une grande flexibilité et une meilleure scalabilité du projet, répondant ainsi aux besoins spécifiques de gestion et d'interaction utilisateur du site de ZombieLand.",
+      ],
+    },
+    {
       title: "Formation Développeur Web FullStack",
       company_name: "O'Clock",
       icon: oclock2,
       iconBg: "#0ac3a6",
-      date: "Depuis Avril 2023",
+      date: "Avril 2023 - Février 2024",
       points: [
         "Pré qualification et validation compétence professionnelle savoir faire et savoir être chez Histya",
         "Actuellement, je suis inscrit à la formation Full Stack / Accessibilité de l'école O'Clock, où j'acquiers des compétences essentielles en développement web. J'apprends à maîtriser des technologies telles que HTML, CSS, JavaScript, Node.js, PostgreSQL, React, tout en mettant un fort accent sur l'accessibilité pour rendre les applications web plus inclusives.",
@@ -172,6 +187,27 @@ import {
   ];
   
   const projects = [
+    {
+      name: "ZombieLand.fr",
+      description:
+        "Dès le début du projet ZombieLand, j'ai travaillé avec mon équipe pour établir les bases techniques et le cadre organisationnel, y compris le Modèle Conceptuel de Données et la création d'un dépôt GitHub. Nous avons défini les besoins, les objectifs, et le MVP, menant à une progression rapide à travers les sprints de développement. J'ai pris en charge une variété de tâches, allant de la conception de wireframes à l'implémentation de fonctionnalités clés en front et back-end, comme la gestion des utilisateurs et la sécurisation des sessions. Le projet a culminé avec le lancement réussi du site, enrichissant mon expérience en développement web et gestion de projet.",
+      tags: [
+        {
+          name: "Node.js, Express",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Ejs, scss",
+          color: "green-text-gradient",
+        },
+        {
+          name: "PostgreSQL",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: siteZombieland,
+      source_code_link: "https://zombieland.fr/",
+    },
     {
       name: "Mon portfolio",
       description:

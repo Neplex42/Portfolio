@@ -9,7 +9,7 @@ const Pod = () => {
   const pod = useGLTF("./saiyajin_spacepod.glb");
 
   return (
-    <primitive object={pod.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive object={pod.scene} scale={2.5} position-y={-1} rotation-x={3} rotation-z={30}/>
   );
 };
 
@@ -17,15 +17,10 @@ const PodCanvas = () => {
   return (
     <Canvas
       shadows
-      frameloop='demand'
+      frameloop='always'
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
-      camera={{
-        fov: 45,
-        near: 0.1,
-        far: 200,
-        position: [3, -8, 3],
-      }}
+      camera={{ position: [20, 3, 15,], fov: 25 }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -35,7 +30,7 @@ const PodCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
         <Pod />
-      <Environment preset='city' />
+      <Environment preset='dawn' />
       <pointLight intensity={200} />
 
         <Preload all />
