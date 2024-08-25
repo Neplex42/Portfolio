@@ -18,15 +18,12 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}> 
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+    > 
     {/* Crée un conteneur animé avec framer-motion en utilisant les propriétés variants. Cela permet d'appliquer des animations spécifiques à ce conteneur */}
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+      <div
+      onClick={() => window.open(source_code_link, "_blank")}
+      className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer'
       > 
       {/* Crée un composant Tilt qui ajoute un effet d'inclinaison aux éléments qu'il enveloppe. Il est configuré avec des options pour définir l'angle maximal, l'échelle, et la vitesse de l'effet */}
         <div className='relative w-full h-[230px]'>
@@ -39,7 +36,6 @@ const ProjectCard = ({
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
-              onClick={() => window.open(source_code_link, "_blank")}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
               <img
@@ -68,7 +64,7 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   );
 }; //Ici, les balises HTML sont utilisées pour afficher les étiquettes (tags) du projet. Ces étiquettes sont mappées à partir d'un tableau tags
@@ -83,15 +79,14 @@ const Works = () => {
       </motion.div>
 
       <div className='w-full flex'>
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+        <div
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         > 
         {/* Crée un paragraphe animé avec un effet de fondu */}
           Les projets / composants suivants mettent en valeur mes compétences et mon expérience à travers des
           exemples concrets de mon travail. Chaque projet est brièvement décrit avec des
           liens vers des dépôts de code et des démonstrations en direct. Certains projets ont été réalisés grâce à des maquettes comme point de départ.
-        </motion.p>
+        </div>
       </div>
 
       <div className='mt-20 flex flex-wrap gap-7'>

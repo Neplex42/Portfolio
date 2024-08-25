@@ -55,12 +55,12 @@ const Hero = () => {
         </div>
         <div>
 
-          <h1 className={`${styles.heroHeadText} text-white`}>
+          <h1 className={`${styles.heroHeadText} text-white drop-shadow-[3px_2px_2px_black]`}>
           {/* // Affiche un titre avec des styles provenant de "styles.heroHeadText" et du texte blanc. */}
             Salut, <span className='text-[#915EFF]'>Je suis Jordan</span>
           </h1>
 
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+          <p className={`${styles.heroSubText} mt-2 text-white-100 drop-shadow-[3px_2px_2px_black]`}>
           {/* // Affiche un paragraphe avec des styles provenant de "styles.heroSubText" et du texte blanc. */}
             Je développe des interfaces<br className='sm:block hidden' />
              utilisateur et des applications web.

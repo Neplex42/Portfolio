@@ -1,10 +1,12 @@
 import {
     siteZombieland,
+    valrhona,
     postgreSQL,
     zombieland,
     iconZombieland,
     oclock,
     oclock2,
+    axome,
     mobile,
     backend,
     creator,
@@ -137,6 +139,17 @@ import {
   
   const experiences = [
     {
+      title: "Alternance Développeur front-end Shopify",
+      company_name: "Axome",
+      icon: axome,
+      iconBg: "#FEDAF2",
+      date: "Juin 2024 - Maintenant",
+      points: [
+        "Au sein de mon alternance chez Axome, je me suis spécialisé dans le développement de sites web e-commerce sous Shopify. Mon rôle principal consiste à convertir des maquettes fournies par l'équipe de designers en sites web fonctionnels et esthétiques, en utilisant des technologies telles que JavaScript, SCSS, et Liquid.",
+        "En plus de la réalisation des maquettes, je suis également responsable de la mise en place de systèmes modulables qui permettent aux clients d'ajuster et de personnaliser les différentes sections de leurs sites e-commerce selon leurs besoins spécifiques. Cette flexibilité garantit que chaque site développé est non seulement attractif et performant, mais aussi parfaitement adaptable aux préférences et exigences des utilisateurs finaux.",
+      ],
+    },
+    {
       title: "ZombieLand Adventure Park",
       company_name: "Node, express, ejs et scss",
       icon: iconZombieland,
@@ -188,9 +201,30 @@ import {
   
   const projects = [
     {
+      name: "Valrhona Collection",
+      description:
+        "Au cours de mon alternance chez Axome, j'ai eu l'opportunité de réaliser le site e-commerce de Valrhona sur Shopify. Ce projet m'a permis de mettre en pratique mes compétences en développement front-end pour créer une expérience utilisateur fluide et adaptée aux besoins spécifiques de cette marque prestigieuse.",
+      tags: [
+        {
+          name: "Javascript",
+          color: "yellow-text-gradient",
+        },
+        {
+          name: "Scss",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Liquid",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: valrhona,
+      source_code_link: "https://www.valrhona-collection.com/",
+    },
+    {
       name: "ZombieLand.fr",
       description:
-        "Dès le début du projet ZombieLand, j'ai travaillé avec mon équipe pour établir les bases techniques et le cadre organisationnel, y compris le Modèle Conceptuel de Données et la création d'un dépôt GitHub. Nous avons défini les besoins, les objectifs, et le MVP, menant à une progression rapide à travers les sprints de développement. J'ai pris en charge une variété de tâches, allant de la conception de wireframes à l'implémentation de fonctionnalités clés en front et back-end, comme la gestion des utilisateurs et la sécurisation des sessions. Le projet a culminé avec le lancement réussi du site, enrichissant mon expérience en développement web et gestion de projet.",
+        "Mon projet de fin de formation. J'ai pris en charge une variété de tâches, allant de la conception de wireframes à l'implémentation de fonctionnalités clés en front et back-end, comme la gestion des utilisateurs et la sécurisation des sessions. Le projet a culminé avec le lancement réussi du site, enrichissant mon expérience en développement web et gestion de projet.",
       tags: [
         {
           name: "Node.js, Express",

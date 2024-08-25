@@ -25,6 +25,7 @@ import postgreSQL from "./company/Postgresql_elephant.svg";
 
 import oclock from "./company/oclock.png";
 import oclock2 from "./company/oclock2.svg";
+import axome from "./company/axome.svg";
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
@@ -32,6 +33,8 @@ import tesla from "./company/tesla.png";
 import zombieland from "./company/zombieland.png";
 import iconZombieland from "./company/iconZombieland.png";
 import siteZombieland from "./company/zombieland-site.png";
+import valrhona from "./company/valrhona.png";
+
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -42,6 +45,7 @@ import sitee from "./site-e-commerce.png";
 export {
   internet,
   siteZombieland,
+  valrhona,
   zombieland,
   iconZombieland,
   sitee,
@@ -49,6 +53,7 @@ export {
   postgreSQL,
   oclock,
   oclock2,
+  axome,
   logo,
   backend,
   creator,
